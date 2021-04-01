@@ -52,6 +52,13 @@ client.connect(err => {
     })
   })
 
+  app.delete('/delete/:id', (req, res) =>{
+    collection.deleteOne({_id: ObjectId(req.params.id)})
+    .then( result => {
+      console.log(result);
+    })
+  })
+
   console.log('connected to database');
 });
 
